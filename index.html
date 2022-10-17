@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link rel="manifest" href="./manifest.json">
+    <title>Practica 7 - Notas PWA</title>
+</head>
+<body>
+<div class="navbar bg-base-100">
+    <label for="my-drawer" class="btn btn-ghost text-xl uppercase">Menu</label>
+</div>
+
+<div class="drawer">
+    <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+
+    <div class="drawer-content">
+
+        <div class="grid h-screen place-items-center">
+            <div class="grid justify-items-center container">
+                <!--Card Añadir-->
+                <div class="card w-96 bg-base-100 shadow-xl m-2">
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Agregar Nota</h2>
+                        <input type="text" placeholder="Type here" class="input w-full max-w-xs" />
+                        <input type="text" placeholder="Type here" class="input w-full max-w-xs" />
+                        <div class="card-actions justify-end mt-1">
+                            <button class="btn btn-primary">GUARDAR</button>
+                            <button class="btn btn-ghost">FOTO</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="text-2xl font-bold capitalize flex justify-center mt-5 mb-5">MIS NOTAS</h1>
+                <div class="grid justify-items-center md:grid-cols-3 sm:grid-cols-1 container">
+
+                    <div class="card card-side bg-base-100 shadow-xl m-2">
+                        <figure><img src="https://placeimg.com/200/280/arch" alt="Movie"/></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">NOTA 1</h2>
+                            <p>TEST 1</p>
+                        </div>
+                    </div>
+                    <div class="card card-side bg-base-100 shadow-xl m-2">
+                        <figure><img src="https://placeimg.com/200/280/arch" alt="Movie"/></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">NOTA 2</h2>
+                            <p>Test 2</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="drawer-side">
+        <label for="my-drawer" class="drawer-overlay"></label>
+        <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+            <!-- Sidebar content here -->
+            <li><a class="uppercase">Mis notas</a></li>
+            <li><a class="uppercase">Mas recientes</a></li>
+            <div class="dropdown">
+                <li><a tabindex="0" class="uppercase">Categorias</a></li>
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a>Personales</a></li>
+                </ul>
+            </div>
+        </ul>
+    </div>
+</div>
+    <!--<div class="grid h-screen place-items-center">
+        <div class="grid">
+            <h1 class="text-2xl font-bold capitalize flex justify-center">main view</h1>
+        </div>
+    </div>-->
+    <script>
+        if(navigator.serviceWorker){
+            navigator.serviceWorker.register('./sw.js');
+        }
+    </script>
+    <script src="./sw.js"></script>
+</body>
+</html>
